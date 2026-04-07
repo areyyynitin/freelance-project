@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+
 export default function Model() {
   function GSAP(): () => void {
     const lenis = new Lenis();
@@ -220,3 +221,7 @@ export default function Model() {
 
   );
 }
+
+
+
+

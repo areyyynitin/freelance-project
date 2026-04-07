@@ -1,12 +1,16 @@
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
-import Model from "@/components/Model";
-import Work from "@/components/sec-2/Home";
+import ProjectHome from "@/components/projects/Home";
+import WorkHome from "@/components/work/WorkHome";
 
 export default function Page() {
   return (
    <>
-   <Hero/>
-   <Work/>
+  
+   <Hero/> 
+   <ProjectHome/>
+   <WorkHome/>
+   <Footer/>
    </>
   );
 }

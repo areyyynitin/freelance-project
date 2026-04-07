@@ -33,6 +33,13 @@ export default function About({ images }: AboutProps) {
 
   return (
     <section className="about relative h-[100svh] w-full flex justify-center items-center text-center mt-[275svh]">
+       <div className="grid grid-cols-2 gap-4 p-4 md:hidden">
+    {images.map((src, i) => (
+      <div key={i} className="w-full h-[120px] rounded-lg overflow-hidden">
+        <img src={src} className="w-full h-full object-cover" />
+      </div>
+    ))}
+  </div>
       <div className="about-images w-full h-full flex justify-between items-center p-16">
         {cols.map((col, idx) => (
           <div

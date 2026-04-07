@@ -2,12 +2,7 @@
 
 import { useGsapAnimation } from "@/hooks/usePageAnimation";
 import HeroSection from "./HeroSection";
-import Outro from "./Outro";
 import About from "./AboutSection";
-
-
-
-
 
 
 
@@ -43,7 +38,7 @@ export default function Hero() {
         <>
             <HeroSection
                 title="A hero text goes here for testing"
-                subtitle="A more text that everyone liked it"
+                subtitle=""
             />
             <About images={images} />
             {/* <Outro /> */}
