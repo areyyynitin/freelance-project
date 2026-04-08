@@ -7,33 +7,31 @@ import WorkHome from "@/components/work/WorkHome";
 
 export default function Page() {
   return (
-   <>
-<div className="min-h-screen flex flex-col">
-  <Navbar />
+    <>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
 
-  {/* ❌ NO overflow-hidden here */}
-  <main className="flex-1">
-    
-    <section className="overflow-hidden">
-      <Hero />
-    </section>
+        {/* ❌ NO overflow-hidden here */}
+        <main className="flex-1">
+          <section className="overflow-hidden">
+            <Hero />
+          </section>
 
-    <section className="overflow-hidden">
-      <WorkHome />
-    </section>
+          <section className="overflow-hidden">
+            <WorkHome />
+          </section>
 
-    <section className="overflow-hidden">
-      <ProjectHome />
-    </section>
+          <section className="overflow-hidden">
+            <ProjectHome />
+          </section>
 
-    <section className="overflow-hidden">
-      <ContactUs />
-    </section>
+          <section className="overflow-hidden">
+            <ContactUs />
+          </section>
+        </main>
 
-  </main>
-
-  <Footer />
-</div>
-   </>
+        <Footer />
+      </div>
+    </>
   );
 }

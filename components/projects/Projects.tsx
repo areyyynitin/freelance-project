@@ -91,7 +91,7 @@ export function Project() {
     };
   }, []);
 
-  const rowsData: (typeof PROJECTS[number])[][] = [];
+  const rowsData: (typeof PROJECTS)[number][][] = [];
   let currentProjectIndex = 0;
 
   for (let r = 0; r <= TOTAL_ROWS; r++) {
