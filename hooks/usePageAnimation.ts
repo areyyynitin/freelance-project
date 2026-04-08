@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -12,14 +11,6 @@ export const useGsapAnimation = () => {
 
   useEffect(() => {
      if (window.innerWidth < 768) return;
-    const lenis = new Lenis();
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time: number) => {
-      lenis.raf(time * 1000);
-    });
-
     gsap.ticker.lagSmoothing(0);
 
     const heroCopySplit = SplitText.create(".hero-copy h3", {
@@ -32,33 +23,28 @@ export const useGsapAnimation = () => {
     const trigger = ScrollTrigger.create({
       trigger: ".hero",
       start: "top top",
-      end: `+=${window.innerHeight * 3.5}`,
+      end: `+=${window.innerHeight * 0.7}`,
       pin: true,
-      pinSpacing: false,
+      pinType:"fixed",
+      pinSpacing: true,
       scrub: 1,
 
       onUpdate: (self: ScrollTrigger) => {
         const progress = self.progress;
 
-        const heroHeaderProgress = Math.min(progress / 0.29, 1);
-        gsap.set(".hero-header", { yPercent: -heroHeaderProgress * 100 });
-
         const heroWordProgress = Math.max(
           0,
           Math.min(progress / 0.29 / 0.21, 1)
         );
-
         const totalWords = heroCopySplit.words.length;
 
         heroCopySplit.words.forEach((word: Element, i: number) => {
           const wordStart = i / totalWords;
           const wordEnd = (i + 1) / totalWords;
-
           const opacity = Math.max(
             0,
             Math.min((heroWordProgress - wordStart) / (wordEnd - wordStart), 1)
           );
-
           gsap.set(word, { opacity });
         });
 
@@ -106,8 +92,6 @@ export const useGsapAnimation = () => {
       trigger.kill();
       heroCopySplit.revert();
       animations.forEach((a) => a.kill());
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-      lenis.destroy();
     };
   }, []);
 };

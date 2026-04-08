@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { Button } from "../retroui/Button";
+
 type AboutProps = {
   images: string[];
 };
@@ -32,7 +35,7 @@ export default function About({ images }: AboutProps) {
   ];
 
   return (
-    <section className="about relative h-[100svh] w-full flex justify-center items-center text-center mt-[275svh]">
+    <section className="about relative h-[100svh] w-full flex justify-center items-center text-center mt-[15svh]">
        <div className="grid grid-cols-2 gap-4 p-4 md:hidden">
     {images.map((src, i) => (
       <div key={i} className="w-full h-[120px] rounded-lg overflow-hidden">
@@ -64,8 +67,9 @@ export default function About({ images }: AboutProps) {
         ))}
       </div>
 
-      <div className="about-header absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%]">
-        <h3 className="text-[3rem]">Shubharambh Decoration</h3>
+      <div className="about-header absolute top-2/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] flex justify-center items-center">
+        {/* <h3 className="text-[3rem]">Shubharambh Decoration</h3> */}
+     <Link href='/services'>    <Button  > View More </Button> </Link>
       </div>
     </section>
   );
