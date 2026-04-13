@@ -39,13 +39,19 @@ export default function Hero() {
   return (
     <section className="hero relative h-[100svh] w-full" id="section-1">
       <div className="hero-img absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 overflow-hidden">
-        <video
+        {/* <video
           src="/hero.mp4"
           autoPlay
           muted
           loop
           playsInline
           className="w-full h-full object-cover"
+        /> */}
+        <Image
+          src="/hero.png"
+          alt=""
+          fill
+          className="object-cover"
         />
       </div>
 
